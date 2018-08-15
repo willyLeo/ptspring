@@ -1,0 +1,30 @@
+.cus-login{
+	margin-top: 20%;
+}
+
+.cus-input-login{
+	width: 100%;
+	height: 40px;
+	border-radius: 20px;
+	
+	border: 1px solid #9ACD32;
+	background-color: white;
+	margin: 10px 0px 10px 0px;
+	padding: 3px 20px 3px 20px;
+	font-family: sans-serif;
+}
+
+.cus-input-login:focus{
+	/*border: none;*/
+	outline: none;
+}
+
+.cus-button-login{
+	width: 100%;
+	height: 40px;
+	border-radius: 20px;
+	
+	border: 1px solid #9ACD32;
+	background-color: #9ACD32;
+	color: white;
+}

@@ -8,18 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class BusController {
-	
+public class IndexController {
 	@RequestMapping(value="/Unidades")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
 
         return new ModelAndView("indexBus");
-    }
-	
-	@RequestMapping(value="/Unidades/Registrar")
-    public ModelAndView bus(HttpServletRequest request, HttpServletResponse response){
-
-        return new ModelAndView("formBus");
     }
 
 }

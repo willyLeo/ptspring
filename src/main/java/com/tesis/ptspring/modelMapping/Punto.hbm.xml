@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 12/08/2018 11:52:39 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tesisdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.tesis.ptspring.modelMapping.Punto" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="punto">
+        <id name="puntoId" type="string">
+            <column length="32" name="PuntoId"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.tesis.ptspring.modelMapping.Locacion" embed-xml="true" fetch="select" insert="true" name="locacion" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="32" name="LOCACION_LocacionId" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="punto" optimistic-lock="true" type="string" unique="false">
+            <column name="Punto" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="puntoRutas" optimistic-lock="true" sort="unsorted" table="punto_ruta">
+            <key on-delete="noaction">
+                <column length="32" name="PUNTO_PuntoId" not-null="true"/>
+            </key>
+            <one-to-many class="com.tesis.ptspring.modelMapping.PuntoRuta" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

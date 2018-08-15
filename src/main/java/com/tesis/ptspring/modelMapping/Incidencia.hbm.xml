@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 12/08/2018 11:52:39 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tesisdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.tesis.ptspring.modelMapping.Incidencia" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="incidencia">
+        <id name="incidenciaId" type="string">
+            <column length="32" name="IncidenciaId"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.tesis.ptspring.modelMapping.CategoriaIncidencia" embed-xml="true" fetch="select" insert="true" name="categoriaIncidencia" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="32" name="CategoriaIncidenciaId" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.tesis.ptspring.modelMapping.SalidaBus" embed-xml="true" fetch="select" insert="true" name="salidaBus" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="32" name="SalidaBusId" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="fechaIncidencia" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="FechaIncidencia" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="horaEstimada" optimistic-lock="true" type="time" unique="false">
+            <column length="8" name="HoraEstimada" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="anotaciones" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="Anotaciones"/>
+        </property>
+    </class>
+</hibernate-mapping>

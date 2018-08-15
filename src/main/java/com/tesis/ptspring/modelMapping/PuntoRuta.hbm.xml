@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 12/08/2018 11:52:39 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tesisdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.tesis.ptspring.modelMapping.PuntoRuta" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="punto_ruta">
+        <id name="puntoRutaId" type="string">
+            <column length="32" name="PuntoRutaId"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.tesis.ptspring.modelMapping.Punto" embed-xml="true" fetch="select" insert="true" name="punto" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="32" name="PUNTO_PuntoId" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.tesis.ptspring.modelMapping.Ruta" embed-xml="true" fetch="select" insert="true" name="ruta" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="32" name="RUTA_RutaId" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

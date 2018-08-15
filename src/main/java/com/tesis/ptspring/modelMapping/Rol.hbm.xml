@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 12/08/2018 11:52:39 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tesisdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.tesis.ptspring.modelMapping.Rol" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="rol">
+        <id name="rolId" type="string">
+            <column length="32" name="RolId"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="rol" optimistic-lock="true" type="string" unique="false">
+            <column name="Rol" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="descripcion" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="Descripcion"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="usuarios" optimistic-lock="true" sort="unsorted" table="usuario">
+            <key on-delete="noaction">
+                <column length="32" name="RolId" not-null="true"/>
+            </key>
+            <one-to-many class="com.tesis.ptspring.modelMapping.Usuario" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="permisoRols" optimistic-lock="true" sort="unsorted" table="permiso_rol">
+            <key on-delete="noaction">
+                <column length="32" name="RolId" not-null="true"/>
+            </key>
+            <one-to-many class="com.tesis.ptspring.modelMapping.PermisoRol" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 12/08/2018 11:52:39 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tesisdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.tesis.ptspring.modelMapping.PermisoRol" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="permiso_rol">
+        <id name="permisoRolId" type="string">
+            <column length="32" name="PermisoRolId"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.tesis.ptspring.modelMapping.Permiso" embed-xml="true" fetch="select" insert="true" name="permiso" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="32" name="PERMISO_PermisoId" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.tesis.ptspring.modelMapping.Rol" embed-xml="true" fetch="select" insert="true" name="rol" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="32" name="RolId" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

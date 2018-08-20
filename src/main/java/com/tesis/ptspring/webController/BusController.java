@@ -36,37 +36,13 @@ public class BusController {
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
 		List<Bus> listBuses = busDao.getBuses();
 		
-		try {
-			
-			dataSource = new DriverManagerDataSource();
-			
-			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-			dataSource.setUrl("jdbc:mysql://localhost:3306/tesisdb");
-			dataSource.setUsername("root");
-			dataSource.setPassword("");
-			
-			sessionFactory = new LocalSessionFactoryBean();
-			sessionFactory.setDataSource(dataSource);
-			
-			sessionFactory.setConfigLocation(new ClassPathResource("hibernate.cfg.xml"));
-			
-			transactionManager = new HibernateTransactionManager();
-			transactionManager.setSessionFactory((SessionFactory) sessionFactory);
-			
-		}catch (Exception e) {
-			System.out.println(e.getMessage());
-			// TODO: handle exception
-		}
-		
-		
 		ModelAndView model = new ModelAndView("indexBus");
 		model.addObject("buses", listBuses);
 
         return model;
-        
     }
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/Registrar_Unidades", method = RequestMethod.POST)
 	public String SaveBus(@ModelAttribute("busForm") Bus bus) {
 		Bus model = new Bus();
 		model.setPlaca(bus.getPlaca());

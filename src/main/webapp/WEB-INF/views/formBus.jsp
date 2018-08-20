@@ -6,7 +6,6 @@
 <html>
 	<head>
 		<%@ include file="/WEB-INF/views/libraries.jsp" %>
-	
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Unidades</title>
 	</head>

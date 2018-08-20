@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<!-- <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    	<property name="show_sql">true</property> --> 
+    	<mapping resource="com/tesis/ptspring/modelEntities/Bus.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/CategoriaIncidencia.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Cronograma.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/DetalleCronograma.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/DetalleGrupo.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Empleado.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Grupo.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Incidencia.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Locacion.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/ModeloBus.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Periodo.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Permiso.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/PermisoRol.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/PropietarioBus.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Punto.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/PuntoControl.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/PuntoRuta.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/RecorridoTarjeta.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Rol.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Ruta.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/SalidaBus.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Socio.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Tarjeta.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/TipoSocio.hbm.xml"/>
+    	<mapping resource="com/tesis/ptspring/modelEntities/Usuario.hbm.xml"/>
+    	
+    </session-factory>
+</hibernate-configuration>

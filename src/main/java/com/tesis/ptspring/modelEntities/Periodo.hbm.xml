@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 15/08/2018 10:13:57 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tesisdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.tesis.ptspring.modelEntities.Periodo" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="periodo">
+        <id name="periodoId" type="string">
+            <column length="32" name="PeriodoId"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="periodo" optimistic-lock="true" type="string" unique="false">
+            <column length="8" name="Periodo" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fechaInicio" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="FechaInicio" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fechaFin" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="FechaFin" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="anotaciones" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="Anotaciones"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="cronogramas" optimistic-lock="true" sort="unsorted" table="cronograma">
+            <key on-delete="noaction">
+                <column length="32" name="PeriodoId" not-null="true"/>
+            </key>
+            <one-to-many class="com.tesis.ptspring.modelEntities.Cronograma" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

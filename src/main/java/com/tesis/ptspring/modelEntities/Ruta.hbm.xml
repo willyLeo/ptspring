@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 15/08/2018 10:13:57 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tesisdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.tesis.ptspring.modelEntities.Ruta" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="ruta">
+        <id name="rutaId" type="string">
+            <column length="32" name="RutaId"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="identificador" optimistic-lock="true" type="string" unique="false">
+            <column length="2" name="Identificador" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="puntoRutas" optimistic-lock="true" sort="unsorted" table="punto_ruta">
+            <key on-delete="noaction">
+                <column length="32" name="RUTA_RutaId" not-null="true"/>
+            </key>
+            <one-to-many class="com.tesis.ptspring.modelEntities.PuntoRuta" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="detalleCronogramas" optimistic-lock="true" sort="unsorted" table="detalle_cronograma">
+            <key on-delete="noaction">
+                <column length="32" name="RutaId" not-null="true"/>
+            </key>
+            <one-to-many class="com.tesis.ptspring.modelEntities.DetalleCronograma" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

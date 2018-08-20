@@ -12,31 +12,34 @@ import com.tesis.ptspring.modelEntities.Bus;
 
 public class BusDaoImpl implements BusDao{
 	
-	private SessionFactory sessionfactory;
+	private SessionFactory sessionFactory;
 	
-	public BusDaoImpl(SessionFactory sessionfactory) {
-		this.sessionfactory = sessionfactory;
+	public BusDaoImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	@Override
-	@Transactional
+	@Transactional(rollbackOn=Exception.class)
 	public List<Bus> getBuses() {
-		Session session = this.sessionfactory.getCurrentSession();
-		List<Bus> buses = (List<Bus>) session.createQuery("select from Bus").list();
+		Session session = this.sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Bus> buses = session.createQuery("from Bus").list();
 		
 		return buses;
 	}
 
+	
 	@Override
+	@Transactional
 	public void saveBus(Bus bus) {
-		Session session = this.sessionfactory.getCurrentSession();
+		Session session = this.sessionFactory.getCurrentSession();
 		session.save(bus);
 	}
 
 	@Override
+	@Transactional
 	public Bus getBusById(String id) {
-		Session session = this.sessionfactory.getCurrentSession();
+		Session session = this.sessionFactory.getCurrentSession();
 		
 		Bus bus = session.load(Bus.class, id);
 		
@@ -44,8 +47,9 @@ public class BusDaoImpl implements BusDao{
 	}
 
 	@Override
+	@Transactional
 	public void updateBus(Bus bus) {
-		Session session = this.sessionfactory.getCurrentSession();
+		Session session = this.sessionFactory.getCurrentSession();
 		session.update(bus);
 	}
 
@@ -54,5 +58,6 @@ public class BusDaoImpl implements BusDao{
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 }
